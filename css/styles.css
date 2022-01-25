@@ -1,5 +1,54 @@
-body{
-  margin: 0;
-  padding: 0;
+
+* {
+  margin: 0px;
+  padding: 0px;
   box-sizing: border-box;
+}
+
+:root {
+  --main-font: 'Sedgwick Ave', cursive;
+  --primary-color: lightblue;
+  --secondary-color: #212f45;
+  --third-color: #faf9f9;
+}
+
+body {
+  background: var(--primary-color);
+  height: 100vh;
+  color: var(--secondary-color);
+  font-family: var(--main-font);
+}
+
+.header-page {
+  font-weight: 500;
+  margin-top: 0;
+  font-size: clamp(1rem, 4vw, 4rem);
+  text-align: center;
+  width: 100%;
+  background: #333;
+  padding: 2px 0;
+  color: #fff;
+}
+
+.pokemon-list {
+  margin: 4rem 10rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.card-container {
+  margin: 2rem;
+  display: grid;
+  align-content: center;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+.card-container-item {
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  border-radius: 5px;
+  border: 2px solid var(--secondary-color);
 }
