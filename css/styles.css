@@ -28,6 +28,7 @@ body {
   background: #202023;
   padding: 2px 0;
   color: #fff;
+
 }
 .pokemon-list {
   margin: 4rem 10rem;
@@ -45,6 +46,8 @@ body {
   align-content: center;
   grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 1rem;
+  border: 1px solid;
+  padding: 10px;
 }
 
 .card-container-item {
