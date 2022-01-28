@@ -16,7 +16,7 @@ body {
   background: var(--primary-color);
   height: 100vh;
   color: var(--secondary-color);
-  font-family: var(--main-font);
+  font-family: 'Sedgwick Ave', cursive;
 }
 
 .header-page {
@@ -47,7 +47,6 @@ body {
   grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 1rem;
   border: 1px solid;
-  padding: 10px;
 }
 
 .card-container-item {
