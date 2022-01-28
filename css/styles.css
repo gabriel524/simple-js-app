@@ -22,7 +22,7 @@ body {
 .header-page {
   font-weight: 500;
   margin-top: 0;
-  font-size: clamp(1rem, 4vw, 4rem);
+  font-size: clamp(1rem, 2vw, 2rem);
   text-align: center;
   width: 100%;
   background: #202023;
