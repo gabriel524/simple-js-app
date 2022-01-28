@@ -32,13 +32,13 @@ let PokemonList = [
 
   {
     name:'Fearow',
-    height: 0.7,
+    height: 1.6,
     type: ['Keen-eye,' , 'Sniper']
   },
 
   {
     name:'Charmeleon',
-    height: 1.1,
+    height: 0.7,
     type: ['Blaze,' , 'Solar-power']
 
   }
