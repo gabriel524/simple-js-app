@@ -1,5 +1,5 @@
 //initial declearation of the pokemon
-let PokemonList= [
+let PokemonList = [
   {
     name:'Bulbasaur',
     height: 0.6,
@@ -13,7 +13,7 @@ let PokemonList= [
   },
 
   {
-    name: 'rattata',
+    name: 'Rattata',
     height: 0.4,
     type:['sucker punch' , 'blizzard']
   },
@@ -25,7 +25,7 @@ let PokemonList= [
   },
 
   {
-    name: 'pikachu',
+    name: 'Pikachu',
     height: 0.5,
     type: ['thundershock' , 'thunder']
   },
@@ -40,9 +40,10 @@ let PokemonList= [
     name:'Charmeleon',
     height: 1.1,
     type: ['Blaze,' , 'Solar-power']
+
   }
 
-]
+];
 
   //added function to return the "pokemonList"
   function getAll() {
@@ -55,8 +56,8 @@ console.log(PokemonList);
 // In this This Loop + conditional we specify that the pokemon with a height less than 1 should have the message appearing
 
 for (var i = 0; i < PokemonList.length; i++) {
- if (PokemonList[i].height <= 2.0) {
-    document.write('<P>' +  PokemonList[i].name + ( ', height: ' )+ PokemonList[i].height + ( " (This is\ a good game !!)") + '<P>');
+ if (PokemonList[i].height >= 1.0) {
+    document.write('<P>' +  PokemonList[i].name + ( ', height: ' )+ PokemonList[i].height + ( " (Wow, that\’s big!)") + '<P>');
  } else {
    document.write('<P>' +  PokemonList[i].name + ( ', height: ' )+ PokemonList[i].height + '<P>')
   }

@@ -25,11 +25,10 @@ body {
   font-size: clamp(1rem, 4vw, 4rem);
   text-align: center;
   width: 100%;
-  background: #333;
+  background: #202023;
   padding: 2px 0;
   color: #fff;
 }
-
 .pokemon-list {
   margin: 4rem 10rem;
   display: flex;
@@ -38,6 +37,7 @@ body {
   align-content: center;
   align-items: center;
 }
+
 
 .card-container {
   margin: 2rem;
