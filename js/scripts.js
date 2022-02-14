@@ -1,64 +1,75 @@
-//initial declearation of the pokemon
-let PokemonList = [
-  {
-    name:'Bulbasaur',
-    height: 0.6,
-    type:  ['grass' , 'posion']
-  },
+//  wrappeding pokemon into an IIFE and created new variable "pokemonRepository"
+let pokemonRepository = (function () {
+    let pokemonList = [];
+    let modalContainer = document.querySelector('#innerHTMLeModal');
 
-  {
-    name: 'Nidoqueen',
-    height: 0.5,
-    type: ['Poison-point', 'Rivalry', 'Sheer-force']
-  },
+    function add(pokemon) {
+        if (
+            typeof pokemon === 'object' &&
+            'name' in pokemon
+        )   {
+            pokemonList.push(pokemon);
+        }   else {
+            console.log('Pokemon is incorrect');
+        }
+    }
 
-  {
-    name: 'Rattata',
-    height: 0.4,
-    type:['sucker punch' , 'blizzard']
-  },
+    function getAll() {
+        return pokemonList;
+    }
+    let pokemonRepository = document.getElementById('pokemonRepository');
 
-  {
-    name:'Blastoise',
-    height:0.3,
-    type: ['Rain-dish,' , 'Torrent']
-  },
+    let fetchPokemon = () => {
+        const promises = [];
+        for (let i = 1; i <= 150; i++) {
+            let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
+            promises.push(fetch(url).then((res) => res.json()));
+        }
+        Promise.all(promises).then((results) => {
+            const pokemon = results.map((result) => ({
+                name: result.name,
+                image: result.sprites['front_default'],
+                type: result.types.map((type) => type.type.name).join(', '),
+                id: result.id
 
-  {
-    name: 'Pikachu',
-    height: 0.5,
-    type: ['thundershock' , 'thunder']
-  },
+            }));
+            showPokemon(pokemon);
+        });
+    };
 
-  {
-    name:'Fearow',
-    height: 1.6,
-    type: ['Keen-eye,' , 'Sniper']
-  },
+    const showPokemon = (pokemon) => {
+        console.log(pokemon);
+        const pokemonHTMLString = pokemon
+            .map(
+                (pokeman) => `
+            <li class="card">
+                <img class="card-image" src="${pokeman.image}"/>
+                <h2 class="card-title">${pokeman.id}. ${pokeman.name}</h2>
+                <p class="card-subtitle">Type: ${pokeman.type}</p>
+            </li>
+        `
+          )
+            .join('');
+         pokemonRepository.innerHTML = pokemonHTMLString;
+        };
 
-  {
-    name:'Charmeleon',
-    height: 0.7,
-    type: ['Blaze,' , 'Solar-power']
+    fetchPokemon(pokemonRepository);
 
-  }
+    return {
+        add: add,
+        getAll: getAll,
+        loadList: loadList,
+        loadDetails: loadDetails,
+        showDetails: showDetails,
+        showModal: showModal
 
-];
+    };
+})();
 
-  //added function to return the "pokemonList"
-  function getAll() {
-    return pokemonList;
-  }
-
-
-console.log(PokemonList);
-
-// In this This Loop + conditional we specify that the pokemon with a height less than 1 should have the message appearing
-
-for (var i = 0; i < PokemonList.length; i++) {
- if (PokemonList[i].height >= 1.0) {
-    document.write('<P>' +  PokemonList[i].name + ( ', height: ' )+ PokemonList[i].height + ( " (Wow, that\’s big!)") + '<P>');
- } else {
-   document.write('<P>' +  PokemonList[i].name + ( ', height: ' )+ PokemonList[i].height + '<P>')
-  }
-}
+// forEach loop to iterate over the pokemon in pokemonList
+pokemonRepository.loadList().then(function() {
+    pokemonRepository.getAll().forEach(function(pokemon) {
+      pokemonRepository.fatchPokemon(pokemon);
+        pokemonRepository.addListItem(pokemon);
+    });
+});

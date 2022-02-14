@@ -46,6 +46,7 @@ body {
   grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 1rem;
   border: 1px solid;
+  animation: bounce 0.9s linear;
 }
 
 
@@ -58,10 +59,83 @@ body {
 
 }
 .page-header__logo {
-  width: 200px;
+  width: 228px;
 }
 .card-container-item {
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   border-radius: 5px;
   border: 2px solid var(--secondary-color);
+}
+
+
+
+.body {
+    background-color: orangered;
+    color: white;
+    margin: 0;
+    font-family: rubik;
+}
+
+
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 54px;
+}
+
+#pokemonRepository {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 20px;
+    padding-inline-start: 0;
+    margin: 2rem;
+    display: grid;
+    align-content: center;
+    grid-gap: 1rem;
+}
+
+.card {
+    list-style: none;
+    padding: 40px;
+    background-color: #f4f4f4;
+    color: #222;
+  text-align: center;
+}
+
+.card:hover {
+    animation: bounce 0.5s linear;
+    cursor: pointer;
+}
+
+.card-title {
+    text-transform: capitalize;
+    margin-bottom: 0px;
+    font-size: 32px;
+    font-weight: normal;
+    top: 0;
+}
+.card-subtitle {
+    margin-top: 6px;
+    color: #666;
+    font-weight: lighter;
+}
+
+.card-image {
+    height: 180px;
+}
+
+@keyframes bounce {
+    20% {
+        transform: translateY(-6px);
+    }
+    40% {
+        transform: translateY(0px);
+    }
+
+    80% {
+        transform: translateY(-2px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
