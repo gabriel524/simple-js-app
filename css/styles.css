@@ -1,4 +1,3 @@
-
 * {
   margin: 0px;
   padding: 0px;
@@ -16,7 +15,12 @@ body {
   background: var(--primary-color);
   height: 100vh;
   color: var(--secondary-color);
-  font-family: 'Sedgwick Ave', cursive;
+  font-family: var(--main-font);
+  color: green;
+  text-align: center;
+  font-size: 25px;
+  cursor: pointer;
+
 }
 
 .header-page {
@@ -42,24 +46,43 @@ body {
 .card-container {
   margin: 2rem;
   display: grid;
+  font-size: 2rem;
   align-content: center;
   grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 1rem;
-  border: 1px solid;
-  animation: bounce 0.9s linear;
-}
+  border: 1px solid black;
+  animation: card-container 7s ease-out infinite normal;
+  background-color: orange;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
 
+}
 
 #page-header{
   float: left;
   display: block;
   margin-left: auto;
-  width:250px;
   height: 50px;
+  width: 20px;
+}
+
+.container-fluid{
+  width: 100%;
+}
+
+.container{
+  width: 1140px;
+  display: block;
+  margin: 0 auto;
 
 }
+
 .page-header__logo {
-  width: 228px;
+  width: 220px;
+  height: 100px;
+
 }
 .card-container-item {
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
@@ -67,75 +90,18 @@ body {
   border: 2px solid var(--secondary-color);
 }
 
-
-
-.body {
-    background-color: orangered;
-    color: white;
-    margin: 0;
-    font-family: rubik;
-}
-
-
-h1 {
-    text-transform: uppercase;
-    text-align: center;
-    font-size: 54px;
-}
-
-#pokemonRepository {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    grid-gap: 20px;
-    padding-inline-start: 0;
-    margin: 2rem;
-    display: grid;
-    align-content: center;
-    grid-gap: 1rem;
-}
-
-.card {
-    list-style: none;
-    padding: 40px;
-    background-color: #f4f4f4;
-    color: #222;
-  text-align: center;
-}
-
-.card:hover {
-    animation: bounce 0.5s linear;
-    cursor: pointer;
-}
-
-.card-title {
-    text-transform: capitalize;
-    margin-bottom: 0px;
-    font-size: 32px;
-    font-weight: normal;
-    top: 0;
-}
-.card-subtitle {
-    margin-top: 6px;
-    color: #666;
-    font-weight: lighter;
-}
-
-.card-image {
-    height: 180px;
-}
-
-@keyframes bounce {
+@keyframes card-container {
     20% {
-        transform: translateY(-6px);
+        transform: scale(0.22);
     }
-    40% {
-        transform: translateY(0px);
+    60% {
+          transform: scale(0,1);
     }
 
     80% {
-        transform: translateY(-2px);
+          transform: scale(0.22);
     }
     100% {
-        transform: translateY(0);
+          transform: scale(0.22);
     }
 }
