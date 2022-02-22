@@ -1,75 +1,205 @@
-//  wrappeding pokemon into an IIFE and created new variable "pokemonRepository"
 let pokemonRepository = (function () {
-    let pokemonList = [];
-    let modalContainer = document.querySelector('#innerHTMLeModal');
 
-    function add(pokemon) {
-        if (
-            typeof pokemon === 'object' &&
-            'name' in pokemon
-        )   {
-            pokemonList.push(pokemon);
-        }   else {
-            console.log('Pokemon is incorrect');
-        }
+  //initial declearation of the pokemon
+  let pokemonList = [
+    {
+      name:'Bulbasaur',
+      height: 0.6,
+      type:  ['grass' , 'posion']
+    },
+
+    {
+      name: 'Nidoqueen',
+      height: 0.5,
+      type: ['Poison-point' , 'Rivalry' , 'Sheer-force']
+    },
+
+    {
+      name: 'Rattata',
+      height: 0.4,
+      type:['sucker punch' , 'blizzard']
+    },
+
+    {
+      name:'Blastoise',
+      height:0.3,
+      type: ['Rain-dish' , 'Torrent']
+    },
+
+    {
+      name: 'Pikachu',
+      height: 0.5,
+      type: ['thundershock' , 'thunder']
+    },
+
+    {
+      name:'Fearow',
+      height: 1.6,
+      type: ['Keen-eye' , 'Sniper']
+    },
+
+    {
+      name:'Charmeleon',
+      height: 0.7,
+      type: ['Blaze' , 'Solar-power']
+
+    },
+    {
+      name:'Snorlax',
+      height: 2.11,
+      type: ['Normal']
+
+    },
+    {
+      name:'Charizard',
+      height: 5.07,
+      type: ['fire' , 'flying']
+
+    },
+    {
+      name:'Squirtle',
+      height: 1.08,
+      type: ['Water']
+
+    },
+    {
+      name:'Vivillon',
+      height: 3,
+      type: ['Bug', 'Flying']
+
+    },
+    {
+      name:'Weedle',
+      height: 1.00,
+      type: ['Bug' , 'Posion']
+
+    },
+    {
+      name:'Metapod',
+      height: 2.04,
+      type: ['Bug']
+
+    },
+    {
+      name:'Lucario',
+      height: 1.19,
+      type: ['Fighting' , 'Steel']
+
+    },
+    {
+      name:'Garchomp',
+      height: 1.9,
+      type: ['Ground' , 'Dragon']
+
+    },
+    {
+      name:'Eevee',
+      height: 30.5,
+      type: ['Normal']
+
+    },
+    {
+      name:'Gyarados',
+      height: 6.5,
+      type: ['Flying' , 'Water']
+
+    },
+    {
+      name:'Mew',
+      height: 40.6,
+      type: ['Psychic']
+
+    },
+    {
+      name:'Gastrodon',
+      height: 88.9,
+      type: ['Water' , 'Ground']
+
+    },
+    {
+      name:'Greninja',
+      height: 1.5,
+      type: ['Dark' , 'Water']
+
+    },
+    {
+      name:'Gardevoir',
+      height: 1.6,
+      type: ['Psychic' , 'Fairy']
+
+    },
+    {
+      name:'Togekiss',
+      height: 8.7,
+      type: ['Fairy' , 'Flying']
+
+    },
+    {
+      name:'Mewtwo',
+      height: 0.7,
+      type: ['Dark', 'Bug', 'Ghost']
+
+    },
+    {
+      name:'Budew',
+      height: 20.3,
+      type: ['Grass', 'Poison']
+
+    },
+    {
+      name:'Riolu',
+      height: 71.1,
+      type: ['Fighting']
+
+    },
+    {
+      name:'Palkia',
+      height: 4.19,
+      type: ['Water', 'Dragon']
+
+    },
+    {
+      name:'Roselia',
+      height: 30.5,
+      type: ['Grass' , 'Poison']
+
+    },
+    {
+      name:'Quagsire',
+      height: 1.4,
+      type: ['Ground' , 'Water']
+
+    },
+
+    {
+      name:'Torterra',
+      height: 2.21,
+      type: ['Grass' , 'Ground']
+
     }
 
-    function getAll() {
-        return pokemonList;
-    }
-    let pokemonRepository = document.getElementById('pokemonRepository');
+  ];
 
-    let fetchPokemon = () => {
-        const promises = [];
-        for (let i = 1; i <= 150; i++) {
-            let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-            promises.push(fetch(url).then((res) => res.json()));
-        }
-        Promise.all(promises).then((results) => {
-            const pokemon = results.map((result) => ({
-                name: result.name,
-                image: result.sprites['front_default'],
-                type: result.types.map((type) => type.type.name).join(', '),
-                id: result.id
+  function add(pokemon) {
+    pokemonList.push(pokemon);
+  }
 
-            }));
-            showPokemon(pokemon);
-        });
-    };
+  function getAll() {
+    return pokemonList;
+  }
 
-    const showPokemon = (pokemon) => {
-        console.log(pokemon);
-        const pokemonHTMLString = pokemon
-            .map(
-                (pokeman) => `
-            <li class="card">
-                <img class="card-image" src="${pokeman.image}"/>
-                <h2 class="card-title">${pokeman.id}. ${pokeman.name}</h2>
-                <p class="card-subtitle">Type: ${pokeman.type}</p>
-            </li>
-        `
-          )
-            .join('');
-         pokemonRepository.innerHTML = pokemonHTMLString;
-        };
+  return {
+    getAll: getAll,
+      add: add,
+  };
 
-    fetchPokemon(pokemonRepository);
 
-    return {
-        add: add,
-        getAll: getAll,
-        loadList: loadList,
-        loadDetails: loadDetails,
-        showDetails: showDetails,
-        showModal: showModal
-
-    };
 })();
+console.log(pokemonRepository.getAll());
 
 // forEach loop to iterate over the pokemon in pokemonList
-pokemonRepository.loadList().then(function() {
-    pokemonRepository.getAll().forEach(function(pokemon) {
-      pokemonRepository.fatchPokemon(pokemon);
-        pokemonRepository.addListItem(pokemon);
-    });
+ pokemonRepository.getAll().forEach(function(pokemon){
+    pokemonRepository.add(pokemon)
+    document.write(pokemon.name + ' : '  + pokemon.height + ' : ' + pokemon.type + '<br>');
+
 });
