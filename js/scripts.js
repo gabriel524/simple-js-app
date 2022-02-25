@@ -181,12 +181,18 @@ let pokemonRepository = (function () {
   ];
 
   function add(pokemon) {
-    pokemonList.push(pokemon);
-  }
-
-  function getAll() {
-    return pokemonList;
-  }
+   if (
+     typeof pokemon === "object" &&
+     "name" in pokemon
+   ) {
+     pokemonList.push(pokemon);
+   } else {
+     console.log("pokemon is incorrect");
+   }
+ }
+ function getAll() {
+   return pokemonList;
+ }
 
   return {
     getAll: getAll,
