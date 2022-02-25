@@ -44,60 +44,70 @@ let pokemonRepository = (function () {
       type: ['Blaze' , 'Solar-power']
 
     },
+
     {
       name:'Snorlax',
       height: 2.11,
       type: ['Normal']
 
     },
+
     {
       name:'Charizard',
       height: 5.07,
       type: ['fire' , 'flying']
 
     },
+
     {
       name:'Squirtle',
       height: 1.08,
       type: ['Water']
 
     },
+
     {
       name:'Vivillon',
       height: 3,
       type: ['Bug', 'Flying']
 
     },
+
     {
       name:'Weedle',
       height: 1.00,
       type: ['Bug' , 'Posion']
 
     },
+
     {
       name:'Metapod',
       height: 2.04,
       type: ['Bug']
 
     },
+
     {
       name:'Lucario',
       height: 1.19,
       type: ['Fighting' , 'Steel']
 
     },
+
     {
       name:'Garchomp',
       height: 1.9,
       type: ['Ground' , 'Dragon']
 
     },
+
     {
       name:'Eevee',
       height: 30.5,
       type: ['Normal']
 
     },
+
     {
       name:'Gyarados',
       height: 6.5,
@@ -110,18 +120,21 @@ let pokemonRepository = (function () {
       type: ['Psychic']
 
     },
+
     {
       name:'Gastrodon',
       height: 88.9,
       type: ['Water' , 'Ground']
 
     },
+
     {
       name:'Greninja',
       height: 1.5,
       type: ['Dark' , 'Water']
 
     },
+
     {
       name:'Gardevoir',
       height: 1.6,
@@ -196,38 +209,38 @@ let pokemonRepository = (function () {
  function getAll() {
    return pokemonList;
  }
-// A return statement that return all the given pokemon
-  return {
-    getAll: getAll,
-      add: add,
-      addListItem: addListItem,
-  };
-  function addListItem (pokemon){
-    let list = document.querySelector(".pokemon-list");
-    let listItem  = document.createElement("li");
-    let button = createElement("button")
-    let ul = document.querySelector("ul");
-
-// creating text inside the button element
+    function addListItem(pokemon){
+    let pokemonList = document.querySelector(".pokemon-list");
+    let listpokemon = document.createElement("li");
+    let button = document.createElement("button");
+    // creating text of pkemon inside the button element
     button.innerText = pokemon.name;
-    button.classList.add("button-class");
-    listItem.appendChild(button);
-
-    list.appendChild(listItem);
-    ul = appendChild(unOrderedList)
-
+    button.classList.add("my_button");
+    listpokemon.appendChild(button);
+    pokemonList.appendChild(listpokemon);
     //adding eventhandler to the button which will show the logged pokemon  on click
-      button.addEventListener("click", () => {
+    button.addEventListener("click", function(event) {
         showDetails(pokemon);
       });
     }
+  // A return statement that return all the given pokemon
+  return {
+    add: add,
+    getAll: getAll,
+    addListItem: addListItem
+
+  };
+
 
 })();
+pokemonRepository.add({name: "Bulbasaur", height: 0.6, types: ['grass', 'posion']});
+
 console.log(pokemonRepository.getAll());
 
 // forEach loop to iterate over the pokemon in pokemonList
  pokemonRepository.getAll().forEach(function(pokemon){
-    pokemonRepository.add(pokemon)
-    document.write(pokemon.name + ' : '  + pokemon.height + ' : ' + pokemon.type + '<br>');
+    pokemonRepository.add(pokemon);{
+    pokemonRepository.addListItem(pokemon);
 
+  };
 });
