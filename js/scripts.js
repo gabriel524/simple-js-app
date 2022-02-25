@@ -179,26 +179,48 @@ let pokemonRepository = (function () {
     }
 
   ];
-
+ //addedin a function that add new pokemen to the "pokemonList"
   function add(pokemon) {
+    //checking for only certain properties to be accepted when new pokemon is added
    if (
      typeof pokemon === "object" &&
      "name" in pokemon
    ) {
      pokemonList.push(pokemon);
+     // an else or otherwise stameent declearation
    } else {
      console.log("pokemon is incorrect");
    }
  }
+// a declearation function statement to get oall the pokemon
  function getAll() {
    return pokemonList;
  }
-
+// A return statement that return all the given pokemon
   return {
     getAll: getAll,
       add: add,
+      addListItem: addListItem,
   };
+  function addListItem (pokemon){
+    let list = document.querySelector(".pokemon-list");
+    let listItem  = document.createElement("li");
+    let button = createElement("button")
+    let ul = document.querySelector("ul");
 
+// creating text inside the button element
+    button.innerText = pokemon.name;
+    button.classList.add("button-class");
+    listItem.appendChild(button);
+
+    list.appendChild(listItem);
+    ul = appendChild(unOrderedList)
+
+    //adding eventhandler to the button which will show the logged pokemon  on click
+      button.addEventListener("click", () => {
+        showDetails(pokemon);
+      });
+    }
 
 })();
 console.log(pokemonRepository.getAll());
