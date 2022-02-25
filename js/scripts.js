@@ -223,11 +223,15 @@ let pokemonRepository = (function () {
         showDetails(pokemon);
       });
     }
+    function showDetails(pokmon){
+      console.log(pokemonRepository);
+    }
   // A return statement that return all the given pokemon
   return {
     add: add,
     getAll: getAll,
-    addListItem: addListItem
+    addListItem: addListItem,
+    showDetails: showDetails
 
   };
 
@@ -241,6 +245,7 @@ console.log(pokemonRepository.getAll());
  pokemonRepository.getAll().forEach(function(pokemon){
     pokemonRepository.add(pokemon);{
     pokemonRepository.addListItem(pokemon);
+    pokemonRepository.showDetails(pokemon);
 
   };
 });
