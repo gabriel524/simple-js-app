@@ -59,7 +59,7 @@ body {
   cursor: pointer;
 }
 
-#page-header{
+#page-header {
   float: left;
   display: block;
   margin-left: auto;
@@ -75,38 +75,34 @@ body {
   width: 1140px;
   display: block;
   margin: 0 auto;
-
 }
 
 .page-header__logo {
   width: 220px;
   height: 100px;
-
 }
+
 .card-container-item {
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   border-radius: 5px;
   border: 2px solid var(--secondary-color);
 }
 
-.my_button{
-background-color: #4caf50; /* Green */
-padding: 16px 32px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-font-size: 16px;
-margin: 4px 2px;
--webkit-transition-duration: 0.4s; /* Safari */
-transition-duration: 0.4s;
-cursor: pointer;
-background-color: white;
-color: black;
-border: 2px solid purple;
+.my_button {
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border: 2px solid purple;
 }
-.my_button:hover{
-  background-color: red;
 
+.my_button:hover {
+  background-color: red;
 }
 
 @keyframes card-container {
