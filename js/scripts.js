@@ -22,10 +22,6 @@ function getAll() {
  return pokemonList;
 }
 
-function showDetails(pokemon) {
-  console.log(pokemon);
-  }
-
 function addListItem(pokemon) {
   let pokemonList = document.querySelector(".pokemon-list");
   let listpokemon = document.createElement("li");
@@ -57,8 +53,25 @@ function loadList() {
     })
   }
 
-
-
+function loadDetails(item) {
+     let url = item.detailsUrl;
+     return fetch(url).then(function (response) {
+       return response.json();
+     }).then(function (details) {
+       // adding details to the item
+       item.imageUrl = details.sprites.front_default;
+       item.height = details.height;
+       item.types = details.types;
+     }).catch(function (e) {
+       console.error(e);
+     });
+   }
+   //called when a user clicks on a pokemon button; gets pokemon details from the server
+function showDetails(pokemon) {
+  loadDetails(pokemon).then(function () {
+    console.log(pokemon);
+  });
+}
 
 // A return statement that return all the given pokemon
 return {
@@ -66,7 +79,8 @@ return {
   getAll: getAll,
   addListItem: addListItem,
   showDetails: showDetails,
-  loadList: loadList
+  loadList: loadList,
+  loadDetails: loadDetails
 
 };
 
@@ -77,9 +91,8 @@ console.log(pokemonRepository.getAll());
 // forEach loop to iterate over the pokemon in pokemonList
 pokemonRepository.loadList().then(function() {
 pokemonRepository.getAll().forEach(function(pokemon){
-  pokemonRepository.add(pokemon);{
   pokemonRepository.addListItem(pokemon);
   pokemonRepository.showDetails(pokemon);
-};
-});
+
+  });
 });
