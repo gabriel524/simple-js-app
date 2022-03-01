@@ -19,7 +19,7 @@ function add(pokemon) {
 }
 // a declearation function statement to get oall the pokemon
 function getAll() {
- return pokemonList;
+  return pokemonList;
 }
 
 function addListItem(pokemon) {
