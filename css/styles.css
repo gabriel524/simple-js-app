@@ -22,7 +22,10 @@ body {
   cursor: pointer;
 
 }
-
+h1 .flex .justify-between{
+  justify-content: space-between;
+  display: flex;
+}
 .header-page {
   font-weight: 500;
   margin-top: 0;
@@ -35,12 +38,14 @@ body {
 
 }
 .pokemon-list {
-  margin: 4rem 10rem;
+  margin: 4rem 4rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   align-content: center;
   align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 #page-header {
@@ -51,19 +56,16 @@ body {
   width: 20px;
 }
 
-.container-fluid{
-  width: 100%;
-}
-
-.container{
+.container-fluid .container{
+  width: 100;
   width: 1140px;
   display: block;
   margin: 0 auto;
 }
 
 .page-header__logo {
-  width: 220px;
-  height: 75px;
+  width: 212px;
+  height: 54px;
 }
 
 .card-container-item {
@@ -74,6 +76,8 @@ body {
 
 .my_button {
   padding: 32px 32px;
+  width: 100%;
+  height: 100%;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
@@ -81,10 +85,18 @@ body {
   cursor: pointer;
   background-color: white;
   border: 2px solid purple;
+  align-content: center;
+
 }
 
 .my_button:hover {
   background-color: red;
+  animation: bounce 0.5s linear;
+}
+
+h1, title:first-letter{
+  text-transform: capitalize;
+  font-size: 45px;
 }
 
 html,
@@ -92,16 +104,14 @@ body {
   font-family: Arial, sans-serif;
 }
 
-#modal-container {
+div #modal-container {
   position: fixed;
   padding: 20px;
   box-sizing: border-box;
-  top: 0;
+  top: 3;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-
   /* to show it above other content */
   z-index: 999;
 
@@ -121,7 +131,7 @@ body {
   padding: 15px;
   width: 100%;
   max-width: 700px;
-  text-align: left;
+  background-color: pink;
 }
 
 .modal-close {
@@ -149,19 +159,56 @@ body {
   /* CSS for modal container - add your own desired CSS styles here */
   display: block;
 }
+#show-dialog{
+  height: 100px;
+  width: 100px;
+  border-bottom-width: 4;
+  background: red;
+  animation: animate 4s ease infinite;
+  border-radius: 100%;
+  border: solid purple;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
-@keyframes card-container {
-    20% {
-        transform: scale(0.22);
+@keyframes animate {
+    10% {
+        background-color: #9b59b6;
     }
-    60% {
-          transform: scale(0,1);
+    50% {
+        background-color: #3498db;
+    }
+    70% {
+        background-color: #16a985;
+    }
+    80% {
+        background-color: blue;
+    }
+    100% {
+        background-color: orangered;
+    }
+  }
+
+@keyframes bounce {
+    20% {
+        transform: translateY(-6px);
+    }
+    40% {
+        transform: translateY(0px);
     }
 
     80% {
-          transform: scale(0.22);
+        transform: translateY(-2px);
     }
     100% {
-          transform: scale(0.22);
+        transform: translateY(0);
     }
+}
+/* smaller devices (phones, 600px and up) */
+@media (min-width: 600px) and (max-width: 1100px) {
+  .pokemon-list{
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px;
+    align-content: center;
+  }
 }
