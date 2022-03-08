@@ -21,10 +21,6 @@
   function getAll() {
     return pokemonList;
   }
-  function properCassing(item){
-    return item.charAt(0).toUppercasae() + item.slice(1);
-    console.log(item);
-  }
 
   function addListItem(pokemon) {
     let pokemonList = document.querySelector(".pokemon-list");
@@ -117,47 +113,6 @@
     let modalContainer = document.querySelector('#modal-container');
     modalContainer.classList.remove('is-visible');
   }
-
-  function showDialog(name, height, image) {
-    showModal(name, height, image);
-
-    // We have defined modalContainer here
-    let modalContainer = document.querySelector('#modal-container');
-
-    // We want to add a confirm and cancel button to the modal
-    let modal = modalContainer.querySelector('.modal');
-
-    let confirmButton = document.createElement('button');
-    confirmButton.classList.add('modal-confirm');
-    confirmButton.innerText = 'Confirm';
-
-    let cancelButton = document.createElement('button');
-    cancelButton.classList.add('modal-cancel');
-    cancelButton.innerText = 'Cancel';
-
-    modal.appendChild(confirmButton);
-    modal.appendChild(cancelButton);
-    // We want to focus the confirmButton so that the user can simply press Enter
-    confirmButton.focus();
-    return new Promise((resolve, reject) => {
-      cancelButton.addEventListener('click', hideModal);
-      confirmButton.addEventListener('click', () => {
-        dialogPromiseReject = null; // Reset this
-        hideModal();
-        resolve();
-      });
-      // This can be used to reject from other functions
-      dialogPromiseReject = reject;
-    });
-  }
-
-  document.querySelector('#show-dialog').addEventListener('click', () => {
-    showDialog('Confirm action', 'Are you sure you want to do this?').then(function() {
-      alert('confirmed!');
-    }, () => {
-      alert('not confirmed');
-    });
-  });
 
   let modalContainer = document.querySelector('#modal-container');
   window.addEventListener('keydown', (e) =>{
