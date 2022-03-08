@@ -80,18 +80,21 @@ h1 .flex .justify-between{
   height: 100%;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 25px;
   margin: 5px 3px;
   cursor: pointer;
   background-color: white;
   border: 2px solid purple;
   align-content: center;
-
+  text-transform: capitalize;
 }
 
 .my_button:hover {
   background-color: red;
   animation: bounce 0.5s linear;
+}
+.my_button{
+  animation: animate 7s ease infinite;
 }
 
 h1, title:first-letter{
@@ -104,14 +107,16 @@ body {
   font-family: Arial, sans-serif;
 }
 
-div #modal-container {
+#modal-container {
   position: fixed;
   padding: 20px;
   box-sizing: border-box;
-  top: 3;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+
   /* to show it above other content */
   z-index: 999;
 
@@ -127,8 +132,7 @@ div #modal-container {
   margin: auto;
   display: inline-block;
   box-sizing: border-box;
-  background: #fff;
-  padding: 15px;
+  padding: 30px;
   width: 100%;
   max-width: 700px;
   background-color: pink;
@@ -166,26 +170,32 @@ div #modal-container {
   background: red;
   animation: animate 4s ease infinite;
   border-radius: 100%;
-  border: solid purple;
+  border: solid purple; */
   margin-top: 10px;
   margin-bottom: 10px;
-}
+ }
 
 @keyframes animate {
-    10% {
+    0% {
         background-color: #9b59b6;
     }
     50% {
         background-color: #3498db;
     }
-    70% {
-        background-color: #16a985;
-    }
     80% {
-        background-color: blue;
+        background-color: #00FFFF;
     }
     100% {
-        background-color: orangered;
+        background-color: #708090;
+    }
+    120% {
+        background-color: #F5FFFA;
+    }
+    140% {
+        background-color: #ADFF2F;
+    }
+    160% {
+        background-color: #16a985;
     }
   }
 
@@ -205,7 +215,7 @@ div #modal-container {
     }
 }
 /* smaller devices (phones, 600px and up) */
-@media (min-width: 600px) and (max-width: 1100px) {
+@media (min-width: 600px) and (max-width: 700px) {
   .pokemon-list{
     grid-template-columns: 1fr 1fr;
     grid-gap: 5px;
