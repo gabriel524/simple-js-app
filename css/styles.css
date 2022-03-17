@@ -45,7 +45,7 @@ h1 .flex .justify-between{
   align-content: center;
   align-items: center;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 #page-header {
