@@ -5,58 +5,58 @@
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   //addedin a function that add new pokemen to the "pokemonList"
-  function add(pokemon) {
-    //checking for only certain properties to be accepted when new pokemon is added
-    if (
-      typeof pokemon === "object" &&
-      "name" in pokemon
-    ) {
-      pokemonList.push(pokemon);
-      // an else or otherwise stameent declearation
-    } else {
-      console.log("pokemon is incorrect");
-    }
+function add(pokemon) {
+  //checking for only certain properties to be accepted when new pokemon is added
+  if (
+    typeof pokemon === "object" &&
+    "name" in pokemon
+  ) {
+    pokemonList.push(pokemon);
+    // an else or otherwise stameent declearation
+  } else {
+    console.log("pokemon is incorrect");
   }
+}
   // a declearation function statement to get oall the pokemon
-  function getAll() {
+function getAll() {
     return pokemonList;
   }
 
-  function addListItem(pokemon) {
-    let pokemonList = document.querySelector(".pokemon-list");
-    let listpokemon = document.createElement("li");
-    listpokemon.classList.add("group-list-item");
-    let button = document.createElement("button");
-    button.setAttribute("data-toggle", "modal");
-    button.setAttribute("data-target", "#pokemonModal");
-    // creating text of pkemon inside the button element
-    button.classList.add("my_button");
-    let imageElementFront = document.createElement("img");
-    let imageElementBack = document.createElement("img");
-    button.innerHTML = pokemon.name;
-    listpokemon.appendChild(button);
-    pokemonList.appendChild(listpokemon);
-    //adding eventhandler to the button which will show the logged pokemon  on click
-    button.addEventListener("click", function(event) {
-      showDetails(pokemon);
-    });
-  }
+function addListItem(pokemon) {
+  let pokemonList = document.querySelector(".pokemon-list");
+  let listpokemon = document.createElement("li");
+  listpokemon.classList.add("group-list-item");
+  let button = document.createElement("button");
+  button.setAttribute("data-toggle", "modal");
+  button.setAttribute("data-target", "#pokemonModal");
+  // creating text of pkemon inside the button element
+  button.classList.add("my_button");
+  let imageElementFront = document.createElement("img");
+  let imageElementBack = document.createElement("img");
+  button.innerHTML = pokemon.name;
+  listpokemon.appendChild(button);
+  pokemonList.appendChild(listpokemon);
+  //adding eventhandler to the button which will show the logged pokemon  on click
+  button.addEventListener("click", function(event) {
+    showDetails(pokemon);
+  });
+}
 
-  function loadList() {
-    return fetch(apiUrl).then(function (response) {
-      return response.json();
-    }).then(function (json) {
-      json.results.forEach(function (item) {
-        let pokemon = {
-          name: item.name,
-          detailsUrl: item.url
-        };
-        add(pokemon);
-      });
-    }).catch(function (e) {
-      console.error(e);
-    })
-  }
+function loadList() {
+  return fetch(apiUrl).then(function (response) {
+    return response.json();
+  }).then(function (json) {
+    json.results.forEach(function (item) {
+      let pokemon = {
+        name: item.name,
+        detailsUrl: item.url
+      };
+      add(pokemon);
+    });
+  }).catch(function (e) {
+    console.error(e);
+  })
+}
 
 function loadDetails(item) {
   let url = item.detailsUrl;
@@ -88,7 +88,7 @@ function findAllPokemon(searchName) {
    // Clear all the buttons on the page when user types in search box
    $(".pokemon-list").empty();
  }
-  function showModal(item) {
+function showModal(item) {
   // showModal function
   let modalTitle = $('.modal-title'); // modalTitle
   let modalBody = $('.modal-body'); // modalBody
