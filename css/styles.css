@@ -78,33 +78,23 @@ li {
 }
 
 .modal-title {
-  font-family: "Alfa Slab One", cursive;
   color: red;
-  text-align: center;
+  font-family: 'Sedgwick Ave', cursive;
 }
-/* .modal-body {
-    position: relative;
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-    padding: 1rem;
-} */
+.modal-body {
+  position: relative;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1rem;
+  background: url('../images/background-img.svg')no-repeat;
+}
 
-/* .element.style {
-    background-image: url("/imagesg/icons/background-img.svg");
-    background-color: rgba(120, 200, 80, 0.25);
-    border: 2px solid rgb(78, 130, 52);
-} */
 .modal-body {
   padding-top: 40px;
   font-size: 29px;
   text-align: center;
   background-color: rgba(120, 200, 80, 0.25);
   border: 2px solid rgb(78, 130, 52);
-}
-.card-container-item {
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-  border-radius: 5px;
-  border: 2px solid var(--secondary-color);
 }
 
 .my_button {
@@ -128,6 +118,18 @@ li {
 }
 .my_button{
   animation: animate 7s ease infinite;
+}
+.modal-footer {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  /* padding: 1rem; */
+  border-top: 1px solid #dee2e6;
+  /* border-bottom-right-radius: 0.3rem; */
+  border-bottom-left-radius: 0.3rem;
 }
 
 h1, title:first-letter{
