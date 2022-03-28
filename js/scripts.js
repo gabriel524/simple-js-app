@@ -4,7 +4,6 @@
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
-  //addedin a function that add new pokemen to the "pokemonList"
 function add(pokemon) {
   //checking for only certain properties to be accepted when new pokemon is added
   if (
@@ -93,9 +92,8 @@ function findAllPokemon(searchName) {
 
 function showModal(item) {
   // showModal function
-  let modalTitle = $('.modal-title'); // modalTitle
-  let modalBody = $('.modal-body'); // modalBody
-  // let modalHeader = $(".modal-header"); // no header so removed
+  let modalTitle = $('.modal-title');
+  let modalBody = $('.modal-body');
 
   let pokemonName = $('<h1>' + item.name + '</h1>');
 
@@ -114,12 +112,12 @@ function showModal(item) {
   modalTitle.empty(); // clears the modalTitle after display
   modalBody.empty(); // clears the modalBody after display
 
-  modalTitle.append(pokemonName); // pokemonName is displayed as the title in the modal
-  modalBody.append(pokemonImage); // pokemonImage is displayed in the body of the modal
-  modalBody.append(pokemonHeight); // pokemonHeight is displayed in the body of the modal
-  modalBody.append(pokemonWeight); // pokemonWeight is displayed in the body of the modal
+  modalTitle.append(pokemonName); 
+  modalBody.append(pokemonImage);
+  modalBody.append(pokemonHeight);
+  modalBody.append(pokemonWeight);
   modalBody.append(pokemonTypes);
-  modalBody.append(pokemonAbilities); // pokemonDetails are displayed in the body of the modal
+  modalBody.append(pokemonAbilities);
 }
   // A return statement that return all the given pokemon
 return {
