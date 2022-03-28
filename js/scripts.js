@@ -5,7 +5,6 @@
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
 function add(pokemon) {
-  //checking for only certain properties to be accepted when new pokemon is added
   if (
     typeof pokemon === "object" &&
     "name" in pokemon
@@ -28,10 +27,7 @@ function addListItem(pokemon) {
   let button = document.createElement("button");
   button.setAttribute("data-toggle", "modal");
   button.setAttribute("data-target", "#pokemonModal");
-  // creating text of pkemon inside the button element
   button.classList.add("my_button");
-  let imageElementFront = document.createElement("img");
-  let imageElementBack = document.createElement("img");
   button.innerHTML = pokemon.name;
   listpokemon.appendChild(button);
   pokemonList.appendChild(listpokemon);
@@ -63,7 +59,6 @@ function loadDetails(item) {
   return fetch(url).then(function (response) {
     return response.json();
   }).then(function (details) {
-    // Now we add the details to the item
     item.imageUrl = details.sprites.front_default;
     item.height = details.height;
     item.weight = details.weight;
@@ -85,13 +80,29 @@ function showDetails(item) {
     showModal(item);
   });
 }
-function findAllPokemon(searchName) {
-   // Clear all the buttons on the page when user types in search box
-   $(".pokemon-list").empty();
- }
+//makes each String start with uppercase letter
+  function uniqueCasing(item) {
+    return item.charAt(0).toUpperCase() + item.slice(1);
+  }
 
+function findSpecificPokemon(searchName) {
+    $(".pokemon-list").empty();
+    pokemonList.forEach((pokemon) => {
+      if (uniqueCasing(pokemon.name).indexOf(uniqueCasing(searchName)) > -1) {
+        addListItem(pokemon);
+      }
+    });
+  }
+  //adds a click listener and when a pokemon button is pressed it shows pokemon name
+  function addListener(pokemon) {
+    button.addEventListener("click", function () {
+      showDetails(pokemon);
+    });
+  }
+
+// showModal function
 function showModal(item) {
-  // showModal function
+
   let modalTitle = $('.modal-title');
   let modalBody = $('.modal-body');
 
@@ -112,7 +123,7 @@ function showModal(item) {
   modalTitle.empty(); // clears the modalTitle after display
   modalBody.empty(); // clears the modalBody after display
 
-  modalTitle.append(pokemonName); 
+  modalTitle.append(pokemonName);
   modalBody.append(pokemonImage);
   modalBody.append(pokemonHeight);
   modalBody.append(pokemonWeight);
@@ -126,7 +137,8 @@ return {
   addListItem: addListItem,
   loadList: loadList,
   loadDetails: loadDetails,
-  showDetails: showDetails
+  showDetails: showDetails,
+  findSpecificPokemon: findSpecificPokemon
 };
 })();//end of IIFE
   console.log(pokemonRepository.getAll());
