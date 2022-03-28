@@ -43,13 +43,6 @@ h1 .flex .justify-between{
   border: groove;
   background-color: #DEB887;
 }
-.fixed-top {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1030;
-}
 
 .page-header__logo {
   width: 20%;
@@ -73,13 +66,9 @@ li {
   margin: 20px;
 }
 
-.modal-content {
-  max-height: 700px;
-}
-
 .modal-title {
   color: red;
-  font-family: 'Sedgwick Ave', cursive;
+  font-family: Arial, sans-serif;
 }
 .modal-body {
   position: relative;
@@ -118,18 +107,6 @@ li {
 }
 .my_button{
   animation: animate 7s ease infinite;
-}
-.modal-footer {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  /* padding: 1rem; */
-  border-top: 1px solid #dee2e6;
-  /* border-bottom-right-radius: 0.3rem; */
-  border-bottom-left-radius: 0.3rem;
 }
 
 h1, title:first-letter{
