@@ -81,7 +81,7 @@ function showDetails(item) {
   });
 }
 //makes each String start with uppercase letter
-  function uniqueCasing(item) {
+function uniqueCasing(item) {
     return item.charAt(0).toUpperCase() + item.slice(1);
   }
 
@@ -94,7 +94,7 @@ function findSpecificPokemon(searchName) {
     });
   }
   //adds a click listener and when a pokemon button is pressed it shows pokemon name
-  function addListener(pokemon) {
+function addListener(pokemon) {
     button.addEventListener("click", function () {
       showDetails(pokemon);
     });
