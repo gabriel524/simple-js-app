@@ -23,18 +23,23 @@
     />
     <title>Simple JS App</title>
   </head>
+
   <!-- Button trigger modal -->
   <body class="pokedex-page">
-    <div class="row">
-      <nav class="navbar fixed-top">
-        <div>
-          <a class="navbar-brand" href="index.html">
-            <img
-              src="images/my-pokebal.png"
-              alt="Pokéball logo"
-              class="page-header__logo"
-            />
-          </a>
+      <nav class="navbar fixed-top navbar-expand-sm" class="container-fluid" style=" height: auto">
+    <div class="container">
+      <ul class="navbar-nav mb-0" style="list-style-type: none"></ul>
+      <li class="nav-item active" style="list-style-type: none"><div>
+      <a class="navbar-brand" href="index.html">
+        <img
+          src="images/my-pokebal.png"
+          alt="Pokéball logo"
+          class="page-header__logo" class="d-inline-block align-top"
+          <li class="nav-item"/>
+          Home</a>
+            <a class="navbar-brand" href="https://pokeapi.co/" target="_blank">API</a>
+           <li class="nav-item" style="list-style-type: none"><a href="https://github.com/gabriel524/simple-js-app/tree/simple-js-app_task_1.10" class="navbar-brand">
+             Portfolio</a></li>
         </div>
         <div>
           <form class="form-inline">
@@ -47,12 +52,19 @@
               onkeyup="pokemonRepository.findSpecificPokemon(value)"
             />
           </form>
-        </div>
       </nav>
     </div>
+    </div>
+    <!-- image banner -->
+  <div class="image-banner">
+    <img src="images/poke3.png" alt="image of Pikachu and a Boy" width="200px" ,height="24", padding="24", class="logo" />
+  </div>
+
     <div class="page-container"></div>
     <div>
       <h1 class="title">My pokedex</h1>
+      <br>
+      <p style="color: white">Please click on buttons below to see more information</p>
     </div>
     <div
       class="modal fade"
