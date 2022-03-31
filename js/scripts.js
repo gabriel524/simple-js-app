@@ -92,13 +92,7 @@ function findSpecificPokemon(searchName) {
         addListItem(pokemon);
       }
     });
-  }
-  //adds a click listener and when a pokemon button is pressed it shows pokemon name
-function addListener(pokemon) {
-    button.addEventListener("click", function () {
-      showDetails(pokemon);
-    });
-  }
+  } 
 
 // showModal function
 function showModal(item) {
