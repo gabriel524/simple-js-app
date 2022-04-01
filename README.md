@@ -12,4 +12,3 @@ Project Dependencies: ESLint single and double quotes, JavaScript ES6 Version
 
 The APIs used for the project is: pokeapi
 
-Note: please be aware that this project is still undergoing development. Therefore, more improvement will take place until the project reaches its completion. Thanks.
