@@ -1,6 +1,6 @@
 # simple-js-app
 
-Application Description:
+### Application Description:
 
  This project/repo is dedicated to building a Pokédex application by using HTML, CSS, Bootstrap, and JavaScript that loads data from an external API and enables the viewing of data points in detail. To further elaborate, this Pokemon dictionary/app contain a list of 150 different pokemon buttons with their names.
 
@@ -12,3 +12,19 @@ Project Dependencies: ESLint single and double quotes, JavaScript ES6 Version
 
 The APIs used for the project is: pokeapi
 
+---
+
+ ### Pokedex Screenshot:
+<p align="center">
+<img src="/images/img.1.jpg" display="inline-block" margin="0 auto">
+<img src="/images/img.2.jpg" display="inline-block" margin="0 auto">
+<img src="/images/img.3.jpg" display="inline-block" margin="0 auto">
+</p>
+
+---
+
+---
+### Authors
+By: Gabriel Singbeh
+
+---
